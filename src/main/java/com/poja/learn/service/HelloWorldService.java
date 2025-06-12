@@ -13,9 +13,12 @@ import java.time.Duration;
 import static java.io.File.createTempFile;
 
 @Service
-@AllArgsConstructor
 public class HelloWorldService {
     private final BucketComponent bucketComponent;
+
+    public HelloWorldService(BucketComponent bucketComponent) {
+        this.bucketComponent = bucketComponent;
+    }
 
     @SneakyThrows
     public String uploadHelloWorldMessage(String name) {

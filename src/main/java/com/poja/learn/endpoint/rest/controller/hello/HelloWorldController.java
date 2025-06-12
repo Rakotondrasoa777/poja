@@ -7,11 +7,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@AllArgsConstructor
 public class HelloWorldController {
   private final HelloWorldService helloWorldService;
 
-  @GetMapping("/hello")
+    public HelloWorldController(HelloWorldService helloWorldService) {
+        this.helloWorldService = helloWorldService;
+    }
+
+    @GetMapping("/hello")
   public String helloWorld() {
     return "Hello World";
   }
